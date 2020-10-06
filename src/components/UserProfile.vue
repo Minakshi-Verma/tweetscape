@@ -2,18 +2,32 @@
     <div class="user-profile">
         <div class="user-profile_user-panel">
             <h1 class="user-profile_username">@{{user.username}}</h1>
+            <div class="user-profile_admin-badge" v-if="user.isAdmin">Admin</div>
             <div class="user-profile_follower-count">
                 <strong>Follower</strong>:{{followers}}
             </div>            
+        </div>
+        <div class="user-profile_tweets-wrapper">
+            <TweetItem v-for="tweet in user.tweets" :key="tweet.id" :username="user.username" :tweet="tweet"/>
+            <!-- <div class='user-profile_tweet' v-for="tweet in user.tweets" :key="tweet.id">
+                {{tweet.content}} -->
+            <!-- </div> -->
         </div>
     </div>
 
 </template>
 
+
+
 <script>
+
+import TweetItem from "./TweetItem"
+
 export default {
     //name of the component
     name: 'UserProfile',
+    components:{TweetItem},
+
     //data is always going to a fx and would return the data object 
     data() {
         return {
@@ -24,7 +38,11 @@ export default {
                 firstName: "Mini",
                 lastName: "Verma",
                 email: "m@gmail.com",
-                isAdmin: true
+                isAdmin: true,
+                tweets:[
+                    {id:1, content:"Tweet clone is amazing!"},
+                    {id:2, content:"Vue is awesome!"},
+                ]
             }
         }
     },
@@ -74,15 +92,28 @@ export default {
 }
 .user-profile_user-panel{
     display:flex;
-    flex-direction:column;
+    flex-direction:column;    
     margin-right: 50px;
     padding:20px;
     background-color: white;
     border-radius: 5px;
     border:1px solid #DFE3E8;
 }
+
+.user-profile_admin-badge{
+    background:rebeccapurple;
+    color:white;
+    border-radius:5px;
+    margin-right: auto ;
+    padding:0 10px;
+    font-weight: bold;    
+}
 h1{
     margin:0;
+}
+.user-profile_tweet-wrapper{
+    display:grid;
+    grid-gap:10px;
 }
 </style>
 

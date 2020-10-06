@@ -31,5 +31,7 @@ Tech stack: Vue3
 -create a new project on Vue CLI
 -Once you are done creating the project, click task==>serve
 -building single file application
-
-v-on:click === @click
+-------------------------------
+-v-on:click === @click ==>> comparable to onclin in JS
+-v-if / v-else-if/ v-else  ==>> comparable to if statement in JS
+-iteraion always require v-bind===> use :key="some identifier"
