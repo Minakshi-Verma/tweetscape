@@ -124,7 +124,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .user-profile{
     display:grid;
     grid-template-columns:1fr 3fr;
@@ -160,7 +160,7 @@ export default {
             flex-direction: column;
         }        
     }
-    
+
     .user-profile_tweets-wrapper{
         display:grid;
         grid-gap:10px;
