@@ -8,7 +8,13 @@
             </div>            
         </div>
         <div class="user-profile_tweets-wrapper">
-            <TweetItem v-for="tweet in user.tweets" :key="tweet.id" :username="user.username" :tweet="tweet"/>
+            <TweetItem 
+                v-for="tweet in user.tweets" 
+                :key="tweet.id" 
+                :username="user.username" 
+                :tweet="tweet" 
+                @favorite="toggleFavorite"
+            />
             <!-- <div class='user-profile_tweet' v-for="tweet in user.tweets" :key="tweet.id">
                 {{tweet.content}} -->
             <!-- </div> -->
@@ -69,6 +75,9 @@ export default {
     methods:{
          addFollower(){
            return this.followers++
+        },
+        toggleFavorite(id){
+            console.log(`Favorited Tweet# ${id}`)
         }
     },
     //life cycle hooks; fx built in vue interface that runs during different stages of component lifecycle

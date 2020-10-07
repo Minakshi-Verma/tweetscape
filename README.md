@@ -35,3 +35,5 @@ Tech stack: Vue3
 -v-on:click === @click ==>> comparable to onclin in JS
 -v-if / v-else-if/ v-else  ==>> comparable to if statement in JS
 -iteraion always require v-bind===> use :key="some identifier"
+-passing data from parent to child through==>>props
+-passing data from child to parent through (inbuilt method)==>> $emit

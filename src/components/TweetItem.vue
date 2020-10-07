@@ -1,8 +1,8 @@
 <template>
-    <div class="tweet-item">
+    <div class="tweet-item" @click='favoriteTweet(tweet.id)'>
         <div class="user-profile_tweet">
             <div class="tweet-item_user">
-                @{{username}}
+                my username@{{username}}
             </div>
             <div class="tweet-item_content">
                 {{tweet.content}}
@@ -23,6 +23,11 @@ export default {
        tweet:{
            type: String,
            required: true
+       }
+   },
+   methods:{
+       favoriteTweet(id){
+           this.$emit('favorite', id)
        }
    }
 }
