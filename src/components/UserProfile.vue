@@ -5,7 +5,21 @@
             <div class="user-profile_admin-badge" v-if="user.isAdmin">Admin</div>
             <div class="user-profile_follower-count">
                 <strong>Follower</strong>:{{followers}}
-            </div>            
+            </div> 
+            <form class="user-profile_create-tweet" @submit.prevent="createNewTweet"> 
+                <label for="newTweet"><strong>New Tweet</strong></label>
+                <textarea id='newTweet' rows='4' v-model="newTweetContent"/>
+                <div class="user-profile_create-tweet-type">
+                    <label for="newTweetType"><strong>Type:</strong></label>
+                    <select id="newTweetType" v-model="selectedTweetType">
+                        <option :value="option.value" v-for= "(option,index) in tweetTypes" :key="index">
+                            {{option.name}}
+
+                        </option>
+                    </select>
+                </div>
+                <button>Tweet!</button>
+            </form>             
         </div>
         <div class="user-profile_tweets-wrapper">
             <TweetItem 
@@ -37,6 +51,13 @@ export default {
     //data is always going to a fx and would return the data object 
     data() {
         return {
+            newTweetContent: "",
+            selectedTweetType: "instant",
+            //option data that we can loop over
+            tweetTypes:[
+                {value:'draft', name:'Draft'},
+                {value: 'instant', name: 'Instant Tweet'}
+            ],
             followers: 0,
             user: {
                 id: 1,
@@ -78,7 +99,16 @@ export default {
         },
         toggleFavorite(id){
             console.log(`Favorited Tweet# ${id}`)
+        },
+        createNewTweet(){
+            if(this.newTweetContent && this.selectedTweetType !=="draft"){
+                //unshift add the tweet to the start of the list(can use push if we want to add it to the end of the list)
+                this.user.tweets.unshift({
+                id:this.user.tweets.length +1,
+                content: this.newTweetContent
+                })
         }
+    }
     },
     //life cycle hooks; fx built in vue interface that runs during different stages of component lifecycle
     // It can be created, mounted, destroyed
@@ -89,6 +119,7 @@ export default {
     mounted(){
         this.addFollower()
     }
+   
 }
 </script>
 
@@ -115,7 +146,7 @@ export default {
     border-radius:5px;
     margin-right: auto ;
     padding:0 10px;
-    font-weight: bold;    
+    font-weight: bold;   
 }
 h1{
     margin:0;
@@ -124,5 +155,12 @@ h1{
     display:grid;
     grid-gap:10px;
 }
+.user-profile_create-tweet{
+    /* border-top: 1px solid #DFE3E8; */
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+}
+
 </style>
 
