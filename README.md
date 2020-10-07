@@ -1,4 +1,4 @@
-# twitter-clone
+# twitterscape
 
 ## Project setup
 ```
@@ -23,7 +23,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-# twitter-clone
+# twitterscape
 
 Tech stack: Vue3
 1-Get vue cli using# npm install -g @vue/cli
