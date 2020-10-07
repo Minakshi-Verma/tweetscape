@@ -107,6 +107,7 @@ export default {
                 id:this.user.tweets.length +1,
                 content: this.newTweetContent
                 })
+                this.newTweetContent=""
         }
     }
     },
@@ -123,44 +124,49 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
 .user-profile{
     display:grid;
     grid-template-columns:1fr 3fr;
     width:100%;
-    padding:50px 5%;
-}
-.user-profile_user-panel{
-    display:flex;
-    flex-direction:column;    
-    margin-right: 50px;
-    padding:20px;
-    background-color: white;
-    border-radius: 5px;
-    border:1px solid #DFE3E8;
+    padding:50px 5%;    
+
+    .user-profile_user-panel{
+        display:flex;
+        flex-direction:column;    
+        margin-right: 50px;
+        padding:20px;
+        background-color: white;
+        border-radius: 5px;
+        border:1px solid #DFE3E8;
+
+        h1{
+            margin:0;
+        }
+
+        .user-profile_admin-badge{
+            background:rebeccapurple;
+            color:white;
+            border-radius:5px;
+            margin-right: auto ;
+            padding:0 10px;
+            font-weight: bold;   
+        }
+
+        .user-profile_create-tweet{
+            /* border-top: 1px solid #DFE3E8; */
+            padding: 20px;
+            display:flex;
+            flex-direction: column;
+        }        
+    }
+    
+    .user-profile_tweets-wrapper{
+        display:grid;
+        grid-gap:10px;
+    }    
 }
 
-.user-profile_admin-badge{
-    background:rebeccapurple;
-    color:white;
-    border-radius:5px;
-    margin-right: auto ;
-    padding:0 10px;
-    font-weight: bold;   
-}
-h1{
-    margin:0;
-}
-.user-profile_tweet-wrapper{
-    display:grid;
-    grid-gap:10px;
-}
-.user-profile_create-tweet{
-    /* border-top: 1px solid #DFE3E8; */
-    padding: 20px;
-    display:flex;
-    flex-direction: column;
-}
 
 </style>
 

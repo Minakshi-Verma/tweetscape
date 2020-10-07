@@ -26,12 +26,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # twitterscape
 
 Tech stack: Vue3
-1-Get vue cli using# npm install -g @vue/cli
-2- start the web server by installing# vue ui
+1-Get vue cli using ==>>  npm install -g @vue/cli
+2- start the web server by installing==>> vue ui
 -create a new project on Vue CLI
 -Once you are done creating the project, click task==>serve
 -building single file application
 -------------------------------
+# dependancies:
+1. npm i node sass   ( or install using vue cli--search node-sass)
+2.  npm i sass-loader ( or install using vue cli--seach sass-loader)
+
 -v-on:click === @click ==>> comparable to onclin in JS
 -v-if / v-else-if/ v-else  ==>> comparable to if statement in JS
 -iteraion always require v-bind===> use :key="some identifier"

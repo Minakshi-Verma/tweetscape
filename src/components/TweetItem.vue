@@ -12,7 +12,7 @@
 </template>
 
 
-<script>
+<script scoped>
 export default {
    name: "TweetItem" ,
    props:{
